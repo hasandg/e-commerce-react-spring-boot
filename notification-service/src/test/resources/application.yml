@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: notification-service
+  cloud:
+    config:
+      enabled: false
+    discovery:
+      enabled: false
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/notification-test
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration
+      - org.springframework.cloud.config.client.ConfigServiceBootstrapConfiguration
+
+eureka:
+  client:
+    enabled: false
+
+security:
+  oauth2:
+    enabled: false 

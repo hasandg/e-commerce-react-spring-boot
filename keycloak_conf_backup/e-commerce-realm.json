@@ -1,0 +1,72 @@
+{
+  "realm": "ecommerce",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "privateKey": "MIIEogIBAAKCAQEAxk4Zm9MYKk7WDQmKMtS7DhNDnGCo+dfLvJzUyP+8fb/UNUJ7VLyhY2HjsIZHjnfLT5DgbfUPHDNI1V5PxCFMGhFJlmjlS+rYcJKQM9ZLQZJO/Al/Jb1WvxzUU5ZWdBs7L2TONL+m1PrxuX/J0OxrNzKtpEPJMKREfk/Iq5GNjcyxZGZ7gI9gxfDsv8V+KVHm6AmRE/FcLFvQJBn+B94OEBqdZJSUfFcXx8uwXZuKSZoTKjmgWHJEPCuHqFHW0mR2qDRzHCyv+ZAREkIFWILhZZIJQ9XEuSVCY/9JYUzKNnPRQgqJ9ipUP1BfRmUQtPSrBm/JgYGZCp6ir5hJywIDAQABAoIBAFrO+UgE+IyvxM1AWmkMwQeAGqTPmN5lJz+OKGXNNxNhfhCkYUsdT/EOrn3OYbLGaLGK9gQh1NvdEAgYaDHPVyqWMQFTR1/DVGC7xfXmzrTPuXvH7JT3JO872F5uPbZjJxVJJFUWI3XZuXyKMHaPcXZbmnO+iEh+67ysFVNQNYxFSt6wjkSwn5ZIO5Nt2qLvUzMtGQJtZDMPhQOat8YNVEN4TrI0bB0KXE2IEBnr5OEWVKvAQdYGgJF+I4Y3SlYbE9m8gDoZFe9Btr3WTVG4+BUGcCL3HCMX5Q7kFIl7KACo7/oaEpjHHIQIKoF3jBUES4C1gQz4/YVGrr3sV2ECgYEA9RXy8Drj83LLnT+HvPdirR0uQ4NQDkiYJjC8WLFv6AAsmwyoOqb2OeQjQX9p18U8omT5SQa3Hjg+lbQUDx7VKvqjl3svXzfDpvli9rHGrKZ9UlvOJ5U68T2GyHVsPhL5zhnJMUwP8PXaZEFpSDZd3k72XnEh/sfiDANVQQfHn6kCgYEAzzcYKhKJR7UupceP/cImUmDQi/5/8/tNqe6I5JvK2YUGqYYlV6eHhFiZHPNHKCJUvpB+NLXdC8zQLGEgAsNQAPcpqKZ7pY0fnkMeCXTQnJDcgS9jEVos9JgMHYDxZmVJ5Ik/S5ZyuvyHp5QR3MDxCdLRVl8W2xcSLnvDWoddNMMCgYAzf9ypfT6Iyn4GPhqvVRzgmF+1kHt2hEJQP3FSw9KX9MMHzl3VYIjFJbMhKbIKGXBKHNd8tZoJ9hL+O3Ru+XlXsfdVFR3a7RCCYiYPL1FISxlJxO+JB8KE8/g4DTJ09rnUmL9y3ZAJVtHW8fZcKNOqgaR/RXwrwL8eqn39L4+xsQKBgGI0T5jdU4ufbJ6NuSxmNFCmkSfQtkBrWunJFv9QTdJnV+BTzYHNsgQl2SJ28+9HkKCBYLlrjYz0gKICQP4kCxVRnH3Y0/oMrEAvyhJ5NFwRG3+4r+EmCosyqr0bRFrONp0/5mRXVFgKgXLGsvZozGQeUwA/nwD1e83y7hJBxEshAoGAWH3TY8ks6TzM+EL5KKccRDvnQtX36cqXOXUiiNtyiXDFZQJ5MoBV2yOXTQBkOaHjymFZjnbC2bxswmrG20fgOlaZQ5TWLVe49lMUGg42SmvOmvtE9i5uJRZG8/PcBkYNYYZ/jZEDBLtCrSd7lE6W6OXF2Bjyc/QhJ1iCM5j3jq0=",
+  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxk4Zm9MYKk7WDQmKMtS7DhNDnGCo+dfLvJzUyP+8fb/UNUJ7VLyhY2HjsIZHjnfLT5DgbfUPHDNI1V5PxCFMGhFJlmjlS+rYcJKQM9ZLQZJO/Al/Jb1WvxzUU5ZWdBs7L2TONL+m1PrxuX/J0OxrNzKtpEPJMKREfk/Iq5GNjcyxZGZ7gI9gxfDsv8V+KVHm6AmRE/FcLFvQJBn+B94OEBqdZJSUfFcXx8uwXZuKSZoTKjmgWHJEPCuHqFHW0mR2qDRzHCyv+ZAREkIFWILhZZIJQ9XEuSVCY/9JYUzKNnPRQgqJ9ipUP1BfRmUQtPSrBm/JgYGZCp6ir5hJywIDAQAB",
+  "requiredCredentials": [ "password" ],
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin"
+        }
+      ],
+      "realmRoles": [
+        "admin"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Administrator role",
+        "composite": false
+      },
+      {
+        "name": "user",
+        "description": "Regular user role",
+        "composite": false
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "auth-service",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "your-client-secret",
+      "redirectUris": [
+        "http://localhost:8081/*"
+      ],
+      "webOrigins": [
+        "http://localhost:8081"
+      ],
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "authorizationServicesEnabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "publicClient": false,
+      "protocol": "openid-connect"
+    }
+  ],
+  "identityProviders": [
+    {
+      "alias": "google",
+      "providerId": "google",
+      "enabled": true,
+      "config": {
+        "clientId": "your-google-client-id",
+        "clientSecret": "your-google-client-secret",
+        "defaultScopes": "openid profile email",
+        "prompt": "select_account"
+      }
+    }
+  ]
+} 

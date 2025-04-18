@@ -1,0 +1,209 @@
+2025-03-30 14:39:54 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 14002 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-1/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-1/config-server)
+2025-03-30 14:39:54 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 14:39:54 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 14:39:55 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 14:39:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 14:39:55 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 14:39:55 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 14:39:55 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 14:39:55 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 907 ms
+2025-03-30 14:39:56 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 14:39:56 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60928a61, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27358a19, org.springframework.security.web.context.SecurityContextHolderFilter@72224107, org.springframework.security.web.header.HeaderWriterFilter@539316bb, org.springframework.web.filter.CorsFilter@8077c97, org.springframework.security.web.authentication.logout.LogoutFilter@5d601832, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@65844c96, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3070f3e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3271ec2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22865072, org.springframework.security.web.access.ExceptionTranslationFilter@240a2619, org.springframework.security.web.access.intercept.AuthorizationFilter@3ef3f661]
+2025-03-30 14:39:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-03-30 14:39:57 [main] INFO  c.h.s.config.ConfigServerApplication - Started ConfigServerApplication in 2.99 seconds (process running for 3.367)
+2025-03-30 15:27:51 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 15:27:51 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-30 15:30:43 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 21087 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 15:30:43 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 15:30:43 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 15:30:44 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 15:30:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 15:30:44 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 15:30:44 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 15:30:44 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 15:30:44 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1603 ms
+2025-03-30 15:30:45 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 15:30:45 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@799c8758, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e00837f, org.springframework.security.web.context.SecurityContextHolderFilter@464aeb09, org.springframework.security.web.header.HeaderWriterFilter@64440065, org.springframework.web.filter.CorsFilter@63e4484d, org.springframework.security.web.authentication.logout.LogoutFilter@3ef3f661, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e8f2094, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59d6642a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@365cef67, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a5dd083, org.springframework.security.web.access.ExceptionTranslationFilter@314b7945, org.springframework.security.web.access.intercept.AuthorizationFilter@22865072]
+2025-03-30 15:30:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-03-30 15:30:45 [main] INFO  c.h.s.config.ConfigServerApplication - Started ConfigServerApplication in 3.561 seconds (process running for 4.095)
+2025-03-30 16:10:49 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 16:10:49 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-30 16:14:07 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 27718 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:14:07 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:14:07 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:14:08 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:14:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:14:08 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:14:08 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:14:08 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:14:08 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 781 ms
+2025-03-30 16:14:08 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:14:08 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@8077c97, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22865072, org.springframework.security.web.context.SecurityContextHolderFilter@3070f3e6, org.springframework.security.web.header.HeaderWriterFilter@28554ac8, org.springframework.web.filter.CorsFilter@563317c1, org.springframework.security.web.authentication.logout.LogoutFilter@640c216b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e5c8ef3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52bba91a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1689527c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d5d3a5c, org.springframework.security.web.access.ExceptionTranslationFilter@539316bb, org.springframework.security.web.access.intercept.AuthorizationFilter@5b332439]
+2025-03-30 16:14:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-03-30 16:14:08 [main] INFO  c.h.s.config.ConfigServerApplication - Started ConfigServerApplication in 1.834 seconds (process running for 2.17)
+2025-03-30 16:18:19 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-30 16:18:19 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-30 16:18:19 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-30 16:20:24 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-30 16:20:24 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-03-30 16:21:03 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 29271 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:21:03 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:21:03 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:21:04 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:21:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:21:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:21:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:21:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:21:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 883 ms
+2025-03-30 16:21:04 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:21:04 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60928a61, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27358a19, org.springframework.security.web.context.SecurityContextHolderFilter@72224107, org.springframework.security.web.header.HeaderWriterFilter@539316bb, org.springframework.web.filter.CorsFilter@8077c97, org.springframework.security.web.authentication.logout.LogoutFilter@5d601832, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@65844c96, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3070f3e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3271ec2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22865072, org.springframework.security.web.access.ExceptionTranslationFilter@240a2619, org.springframework.security.web.access.intercept.AuthorizationFilter@3ef3f661]
+2025-03-30 16:21:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-03-30 16:21:05 [main] INFO  c.h.s.config.ConfigServerApplication - Started ConfigServerApplication in 1.971 seconds (process running for 2.325)
+2025-03-30 16:29:46 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 31062 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:29:46 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:29:46 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:29:47 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:29:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:29:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:29:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:29:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:29:47 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 827 ms
+2025-03-30 16:29:47 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:29:47 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@8077c97, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22865072, org.springframework.security.web.context.SecurityContextHolderFilter@3070f3e6, org.springframework.security.web.header.HeaderWriterFilter@28554ac8, org.springframework.web.filter.CorsFilter@563317c1, org.springframework.security.web.authentication.logout.LogoutFilter@640c216b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e5c8ef3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52bba91a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1689527c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d5d3a5c, org.springframework.security.web.access.ExceptionTranslationFilter@539316bb, org.springframework.security.web.access.intercept.AuthorizationFilter@5b332439]
+2025-03-30 16:29:48 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-30 16:29:48 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-30 16:29:48 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8888 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8888 or configure this application to listen on another port.
+
+2025-03-30 16:32:03 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 31797 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:32:03 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:32:03 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:32:03 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:32:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:32:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:32:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:32:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:32:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 817 ms
+2025-03-30 16:32:04 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:32:04 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e18ced7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@305b43ca, org.springframework.security.web.context.SecurityContextHolderFilter@1c7cd434, org.springframework.security.web.header.HeaderWriterFilter@52bba91a, org.springframework.web.filter.CorsFilter@4601047, org.springframework.security.web.authentication.logout.LogoutFilter@6a96d639, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@563317c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fc6e776, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65d9e72a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25e8e59, org.springframework.security.web.access.ExceptionTranslationFilter@3070f3e6, org.springframework.security.web.access.intercept.AuthorizationFilter@d9f5fce]
+2025-03-30 16:32:04 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-30 16:32:04 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-30 16:32:04 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8888 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8888 or configure this application to listen on another port.
+
+2025-03-30 16:33:28 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-30 16:33:28 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-30 16:33:28 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-03-30 16:34:51 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 32261 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:34:51 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:34:51 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:34:52 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:34:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:34:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:34:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:34:52 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:34:52 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 796 ms
+2025-03-30 16:34:53 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:34:53 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e18ced7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@305b43ca, org.springframework.security.web.context.SecurityContextHolderFilter@1c7cd434, org.springframework.security.web.header.HeaderWriterFilter@52bba91a, org.springframework.web.filter.CorsFilter@4601047, org.springframework.security.web.authentication.logout.LogoutFilter@6a96d639, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@563317c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fc6e776, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65d9e72a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25e8e59, org.springframework.security.web.access.ExceptionTranslationFilter@3070f3e6, org.springframework.security.web.access.intercept.AuthorizationFilter@d9f5fce]
+2025-03-30 16:34:53 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-30 16:34:53 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-30 16:34:53 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8888 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8888 or configure this application to listen on another port.
+
+2025-03-30 16:38:30 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 32830 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:38:30 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:38:30 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:38:31 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:38:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:38:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:38:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:38:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:38:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 841 ms
+2025-03-30 16:38:31 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:38:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60928a61, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27358a19, org.springframework.security.web.context.SecurityContextHolderFilter@72224107, org.springframework.security.web.header.HeaderWriterFilter@539316bb, org.springframework.web.filter.CorsFilter@8077c97, org.springframework.security.web.authentication.logout.LogoutFilter@5d601832, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@65844c96, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3070f3e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3271ec2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22865072, org.springframework.security.web.access.ExceptionTranslationFilter@240a2619, org.springframework.security.web.access.intercept.AuthorizationFilter@3ef3f661]
+2025-03-30 16:38:32 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-30 16:38:32 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-30 16:38:32 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8888 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8888 or configure this application to listen on another port.
+
+2025-03-30 16:42:41 [main] INFO  c.h.s.config.ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 24 with PID 34009 (/Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server/target/config-server-0.0.1-SNAPSHOT.jar started by hasandag in /Users/hasandag/DEPO/1.CALISMALAR/3.my_git_repositories/JAVA/SPRING/E-Commerce/e-commerce-2/config-server)
+2025-03-30 16:42:41 [main] DEBUG c.h.s.config.ConfigServerApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-30 16:42:41 [main] INFO  c.h.s.config.ConfigServerApplication - The following 1 profile is active: "native"
+2025-03-30 16:42:41 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=97930e51-9b72-321e-bd73-c09a5d0c63ec
+2025-03-30 16:42:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-03-30 16:42:41 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-30 16:42:41 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-30 16:42:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-30 16:42:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 870 ms
+2025-03-30 16:42:42 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-30 16:42:42 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e0d16a4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e18ced7, org.springframework.security.web.context.SecurityContextHolderFilter@21516c88, org.springframework.security.web.header.HeaderWriterFilter@3271ec2a, org.springframework.web.filter.CorsFilter@305b43ca, org.springframework.security.web.authentication.logout.LogoutFilter@3e52ed5d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@22865072, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13004dd8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4fc6e776, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4601047, org.springframework.security.web.access.ExceptionTranslationFilter@394fb736, org.springframework.security.web.access.intercept.AuthorizationFilter@65859b44]
+2025-03-30 16:42:42 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-03-30 16:42:42 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-30 16:42:42 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8888 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8888 or configure this application to listen on another port.
+
