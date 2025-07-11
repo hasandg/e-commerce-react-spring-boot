@@ -65,14 +65,16 @@
       "clientId": "auth-service",
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
-      "secret": "your-client-secret",
+      "secret": "mvQVHUFUoE6cZ5mgKNEWdQQLh07h9U9ayW3dZJVTn1o=",
       "redirectUris": [
         "http://localhost:8081/*",
-        "http://localhost:8765/*"
+        "http://localhost:8765/*",
+        "http://localhost:3000/*"
       ],
       "webOrigins": [
         "http://localhost:8081",
-        "http://localhost:8765"
+        "http://localhost:8765",
+        "http://localhost:3000"
       ],
       "publicClient": false,
       "protocol": "openid-connect",

@@ -39,3 +39,10 @@ build/
 **/volumes/
 /docker-data/
 /logs/
+
+### Node.js ###
+**/node_modules/
+*package-lock.json
+
+### Environment ###
+*.env

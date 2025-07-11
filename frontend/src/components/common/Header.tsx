@@ -1,38 +1,38 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  IconButton, 
+import React, { useState, useEffect } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
   Badge,
   Menu,
   MenuItem,
-  InputBase,
   Box,
+  Container,
   Avatar,
   Drawer,
   List,
   ListItem,
-  ListItemText,
   ListItemIcon,
-  Divider
+  ListItemText,
+  Divider,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
-  Search as SearchIcon,
   ShoppingCart as CartIcon,
   Person as PersonIcon,
   Logout as LogoutIcon,
-  History as HistoryIcon,
   Home as HomeIcon,
-  Category as CategoryIcon,
-  Close as CloseIcon
+  Search as SearchIcon,
+  Favorite as FavoriteIcon,
+  ListAlt as OrdersIcon,
 } from '@mui/icons-material';
 import { styled, alpha } from '@mui/material/styles';
-import { User } from '@/types';
-import { logoutUser } from '@/services/authService';
+import { useKeycloak } from '@react-keycloak/web';
 import { getCartItemCount } from '@/services/cartService';
 
 const Search = styled('div')(({ theme }) => ({
@@ -42,278 +42,223 @@ const Search = styled('div')(({ theme }) => ({
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginRight: theme.spacing(2),
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(1),
     width: 'auto',
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
-
-interface HeaderProps {
-  user: User | null;
-}
-
-const Header = ({ user }: HeaderProps) => {
+const Header: React.FC = () => {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [cartItemCount, setCartItemCount] = useState(0);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { keycloak } = useKeycloak();
+  
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+  
+  const isMenuOpen = Boolean(anchorEl);
+  
   useEffect(() => {
-    // Fetch cart item count on mount and when user changes
+    // Load cart count
     const fetchCartCount = async () => {
-      try {
-        const count = await getCartItemCount();
-        setCartItemCount(count);
-      } catch (error) {
-        console.error('Failed to fetch cart count', error);
+      if (keycloak.authenticated) {
+        try {
+          const count = await getCartItemCount();
+          setCartCount(count);
+        } catch (error) {
+          console.error('Error fetching cart count:', error);
+        }
       }
     };
-
+    
     fetchCartCount();
-  }, [user]);
-
+    
+    // You could set up a polling mechanism or websocket to keep this updated
+    const interval = setInterval(fetchCartCount, 30000); // Every 30 seconds
+    
+    return () => clearInterval(interval);
+  }, [keycloak.authenticated]);
+  
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
+  
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  
+  const handleMobileMenuToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/products?search=${encodeURIComponent(searchQuery)}`);
-      setSearchQuery('');
-    }
+  const handleLogout = () => {
+    keycloak.logout();
   };
 
-  const handleLogout = async () => {
-    try {
-      await logoutUser();
-      handleMenuClose();
-      navigate('/login');
-      // You might want to update app state here
-    } catch (error) {
-      console.error('Logout failed', error);
-    }
-  };
-
-  const drawer = (
-    <Box sx={{ width: 250 }} role="presentation">
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
-        <IconButton onClick={handleDrawerToggle}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={() => { handleMenuClose(); navigate('/profile'); }}>
+        <ListItemIcon>
+          <PersonIcon fontSize="small" />
+        </ListItemIcon>
+        <ListItemText>Profile</ListItemText>
+      </MenuItem>
+      <MenuItem onClick={() => { handleMenuClose(); navigate('/orders'); }}>
+        <ListItemIcon>
+          <OrdersIcon fontSize="small" />
+        </ListItemIcon>
+        <ListItemText>Orders</ListItemText>
+      </MenuItem>
       <Divider />
-      <List>
-        <ListItem button component={Link} to="/" onClick={handleDrawerToggle}>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button component={Link} to="/products" onClick={handleDrawerToggle}>
-          <ListItemIcon>
-            <CategoryIcon />
-          </ListItemIcon>
-          <ListItemText primary="Products" />
-        </ListItem>
-        <ListItem button component={Link} to="/cart" onClick={handleDrawerToggle}>
-          <ListItemIcon>
-            <Badge badgeContent={cartItemCount} color="error">
-              <CartIcon />
-            </Badge>
-          </ListItemIcon>
-          <ListItemText primary="Cart" />
-        </ListItem>
-        {user ? (
-          <>
-            <ListItem button component={Link} to="/orders" onClick={handleDrawerToggle}>
-              <ListItemIcon>
-                <HistoryIcon />
-              </ListItemIcon>
-              <ListItemText primary="Orders" />
-            </ListItem>
-            <ListItem button component={Link} to="/profile" onClick={handleDrawerToggle}>
+      <MenuItem onClick={handleLogout}>
+        <ListItemIcon>
+          <LogoutIcon fontSize="small" />
+        </ListItemIcon>
+        <ListItemText>Logout</ListItemText>
+      </MenuItem>
+    </Menu>
+  );
+
+  const renderMobileMenu = (
+    <Drawer
+      anchor="right"
+      open={mobileMenuOpen}
+      onClose={handleMobileMenuToggle}
+    >
+      <Box sx={{ width: 250 }} role="presentation">
+        <List>
+          <ListItem button component={RouterLink} to="/" onClick={handleMobileMenuToggle}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          {keycloak.authenticated && (
+            <>
+              <ListItem button component={RouterLink} to="/cart" onClick={handleMobileMenuToggle}>
+                <ListItemIcon>
+                  <CartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Cart" />
+                <Badge badgeContent={cartCount} color="error" />
+              </ListItem>
+              <ListItem button component={RouterLink} to="/orders" onClick={handleMobileMenuToggle}>
+                <ListItemIcon>
+                  <OrdersIcon />
+                </ListItemIcon>
+                <ListItemText primary="Orders" />
+              </ListItem>
+              <ListItem button component={RouterLink} to="/profile" onClick={handleMobileMenuToggle}>
+                <ListItemIcon>
+                  <PersonIcon />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+              </ListItem>
+              <ListItem button onClick={handleLogout}>
+                <ListItemIcon>
+                  <LogoutIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+              </ListItem>
+            </>
+          )}
+          {!keycloak.authenticated && (
+            <ListItem button onClick={() => keycloak.login()}>
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Profile" />
+              <ListItemText primary="Login" />
             </ListItem>
-            <ListItem button onClick={handleLogout}>
-              <ListItemIcon>
-                <LogoutIcon />
-              </ListItemIcon>
-              <ListItemText primary="Logout" />
-            </ListItem>
-          </>
-        ) : (
-          <ListItem button component={Link} to="/login" onClick={handleDrawerToggle}>
-            <ListItemIcon>
-              <PersonIcon />
-            </ListItemIcon>
-            <ListItemText primary="Login" />
-          </ListItem>
-        )}
-      </List>
-    </Box>
+          )}
+        </List>
+      </Box>
+    </Drawer>
   );
 
   return (
-    <>
-      <AppBar position="sticky">
+    <AppBar position="static">
+      <Container maxWidth="xl">
         <Toolbar>
           <IconButton
-            size="large"
             edge="start"
             color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2, display: { md: 'none' } }}
-            onClick={handleDrawerToggle}
+            aria-label="menu"
+            onClick={handleMobileMenuToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
-          
+
           <Typography
             variant="h6"
-            noWrap
-            component={Link}
+            component={RouterLink}
             to="/"
-            sx={{ 
-              display: { xs: 'none', sm: 'block' },
+            sx={{
+              flexGrow: 1,
               textDecoration: 'none',
-              color: 'inherit' 
+              color: 'inherit',
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
             E-Commerce
           </Typography>
-          
-          <Box component="form" onSubmit={handleSearch} sx={{ flexGrow: 1 }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search products…"
-                inputProps={{ 'aria-label': 'search' }}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </Search>
-          </Box>
-          
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Button color="inherit" component={Link} to="/products">
-              Products
+
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
+            <Button color="inherit" component={RouterLink} to="/">
+              Home
             </Button>
-            
-            <IconButton 
-              size="large" 
-              color="inherit"
-              component={Link}
-              to="/cart"
-            >
-              <Badge badgeContent={cartItemCount} color="error">
-                <CartIcon />
-              </Badge>
-            </IconButton>
-            
-            {user ? (
+            {keycloak.authenticated && (
               <>
+                <Button color="inherit" component={RouterLink} to="/cart">
+                  Cart
+                  <Badge badgeContent={cartCount} color="error" sx={{ ml: 1 }} />
+                </Button>
+                <Button color="inherit" component={RouterLink} to="/orders">
+                  Orders
+                </Button>
                 <IconButton
-                  size="large"
                   edge="end"
                   aria-label="account of current user"
+                  aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleProfileMenuOpen}
                   color="inherit"
                 >
-                  <Avatar sx={{ width: 32, height: 32, bgcolor: 'secondary.main' }}>
-                    {user.firstName ? user.firstName.charAt(0) : user.username.charAt(0)}
+                  <Avatar sx={{ width: 32, height: 32 }}>
+                    {keycloak.tokenParsed?.preferred_username?.charAt(0).toUpperCase()}
                   </Avatar>
                 </IconButton>
-                <Menu
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorEl)}
-                  onClose={handleMenuClose}
-                >
-                  <MenuItem onClick={() => {
-                    handleMenuClose();
-                    navigate('/profile');
-                  }}>Profile</MenuItem>
-                  <MenuItem onClick={() => {
-                    handleMenuClose();
-                    navigate('/orders');
-                  }}>My Orders</MenuItem>
-                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                </Menu>
               </>
-            ) : (
-              <Button color="inherit" component={Link} to="/login">
+            )}
+            {!keycloak.authenticated && (
+              <Button color="inherit" onClick={() => keycloak.login()}>
                 Login
               </Button>
             )}
           </Box>
         </Toolbar>
-      </AppBar>
-      
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 250 },
-        }}
-      >
-        {drawer}
-      </Drawer>
-    </>
+      </Container>
+      {renderMenu}
+      {renderMobileMenu}
+    </AppBar>
   );
 };
 

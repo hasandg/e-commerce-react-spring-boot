@@ -32,8 +32,7 @@ import {
   ListAlt as OrdersIcon,
 } from '@mui/icons-material';
 import { styled, alpha } from '@mui/material/styles';
-import { User } from '../../types';
-import { logoutUser } from '../../services/authService';
+import { useKeycloak } from '@react-keycloak/web';
 import { getCartItemCount } from '../../services/cartService';
 
 const Search = styled('div')(({ theme }) => ({
@@ -51,14 +50,11 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-interface HeaderProps {
-  user: User | null;
-}
-
-const Header: React.FC<HeaderProps> = ({ user }) => {
+const Header: React.FC = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { keycloak } = useKeycloak();
   
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -69,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
   useEffect(() => {
     // Load cart count
     const fetchCartCount = async () => {
-      if (user) {
+      if (keycloak.authenticated) {
         try {
           const count = await getCartItemCount();
           setCartCount(count);
@@ -85,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
     const interval = setInterval(fetchCartCount, 30000); // Every 30 seconds
     
     return () => clearInterval(interval);
-  }, [user]);
+  }, [keycloak.authenticated]);
   
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -98,22 +94,18 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-  
+
   const handleLogout = () => {
-    logoutUser();
-    handleMenuClose();
-    navigate('/login');
+    keycloak.logout();
   };
-  
-  const menuId = 'primary-account-menu';
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: 'bottom',
+        vertical: 'top',
         horizontal: 'right',
       }}
-      id={menuId}
       keepMounted
       transformOrigin={{
         vertical: 'top',
@@ -122,19 +114,13 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => {
-        handleMenuClose();
-        navigate('/profile');
-      }}>
+      <MenuItem onClick={() => { handleMenuClose(); navigate('/profile'); }}>
         <ListItemIcon>
           <PersonIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Profile</ListItemText>
       </MenuItem>
-      <MenuItem onClick={() => {
-        handleMenuClose();
-        navigate('/orders');
-      }}>
+      <MenuItem onClick={() => { handleMenuClose(); navigate('/orders'); }}>
         <ListItemIcon>
           <OrdersIcon fontSize="small" />
         </ListItemIcon>
@@ -149,55 +135,41 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
       </MenuItem>
     </Menu>
   );
-  
-  const drawer = (
+
+  const renderMobileMenu = (
     <Drawer
-      anchor="left"
+      anchor="right"
       open={mobileMenuOpen}
-      onClose={() => setMobileMenuOpen(false)}
+      onClose={handleMobileMenuToggle}
     >
       <Box sx={{ width: 250 }} role="presentation">
         <List>
-          <ListItem button component={RouterLink} to="/" onClick={() => setMobileMenuOpen(false)}>
+          <ListItem button component={RouterLink} to="/" onClick={handleMobileMenuToggle}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          {!user ? (
+          {keycloak.authenticated && (
             <>
-              <ListItem button component={RouterLink} to="/login" onClick={() => setMobileMenuOpen(false)}>
+              <ListItem button component={RouterLink} to="/cart" onClick={handleMobileMenuToggle}>
                 <ListItemIcon>
-                  <PersonIcon />
+                  <CartIcon />
                 </ListItemIcon>
-                <ListItemText primary="Login" />
+                <ListItemText primary="Cart" />
+                <Badge badgeContent={cartCount} color="error" />
               </ListItem>
-              <ListItem button component={RouterLink} to="/register" onClick={() => setMobileMenuOpen(false)}>
-                <ListItemIcon>
-                  <PersonIcon />
-                </ListItemIcon>
-                <ListItemText primary="Register" />
-              </ListItem>
-            </>
-          ) : (
-            <>
-              <ListItem button component={RouterLink} to="/profile" onClick={() => setMobileMenuOpen(false)}>
-                <ListItemIcon>
-                  <PersonIcon />
-                </ListItemIcon>
-                <ListItemText primary="Profile" />
-              </ListItem>
-              <ListItem button component={RouterLink} to="/orders" onClick={() => setMobileMenuOpen(false)}>
+              <ListItem button component={RouterLink} to="/orders" onClick={handleMobileMenuToggle}>
                 <ListItemIcon>
                   <OrdersIcon />
                 </ListItemIcon>
                 <ListItemText primary="Orders" />
               </ListItem>
-              <ListItem button component={RouterLink} to="/favorites" onClick={() => setMobileMenuOpen(false)}>
+              <ListItem button component={RouterLink} to="/profile" onClick={handleMobileMenuToggle}>
                 <ListItemIcon>
-                  <FavoriteIcon />
+                  <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary="Favorites" />
+                <ListItemText primary="Profile" />
               </ListItem>
               <ListItem button onClick={handleLogout}>
                 <ListItemIcon>
@@ -207,81 +179,77 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
               </ListItem>
             </>
           )}
+          {!keycloak.authenticated && (
+            <ListItem button onClick={() => keycloak.login()}>
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
+              <ListItemText primary="Login" />
+            </ListItem>
+          )}
         </List>
       </Box>
     </Drawer>
   );
-  
+
   return (
-    <AppBar position="sticky">
-      <Container maxWidth="lg">
+    <AppBar position="static">
+      <Container maxWidth="xl">
         <Toolbar>
-          {isMobile && (
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleMobileMenuToggle}
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-          
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleMobileMenuToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+
           <Typography
             variant="h6"
-            noWrap
             component={RouterLink}
             to="/"
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', sm: 'block' },
               textDecoration: 'none',
               color: 'inherit',
-              fontWeight: 'bold',
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
             E-Commerce
           </Typography>
-          
-          <Box sx={{ flexGrow: { xs: 0, md: 1 } }} />
-          
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
             <Button color="inherit" component={RouterLink} to="/">
               Home
             </Button>
-            <Button color="inherit" component={RouterLink} to="/products">
-              Products
-            </Button>
-          </Box>
-          
-          <Box sx={{ display: 'flex' }}>
-            <IconButton size="large" color="inherit" component={RouterLink} to="/cart">
-              <Badge badgeContent={cartCount} color="secondary">
-                <CartIcon />
-              </Badge>
-            </IconButton>
-            
-            {user ? (
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <Avatar
-                  sx={{ width: 32, height: 32, bgcolor: 'secondary.main' }}
-                  alt={`${user.firstName} ${user.lastName}`}
+            {keycloak.authenticated && (
+              <>
+                <Button color="inherit" component={RouterLink} to="/cart">
+                  Cart
+                  <Badge badgeContent={cartCount} color="error" sx={{ ml: 1 }} />
+                </Button>
+                <Button color="inherit" component={RouterLink} to="/orders">
+                  Orders
+                </Button>
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
                 >
-                  {user.firstName?.charAt(0) || user.username?.charAt(0)}
-                </Avatar>
-              </IconButton>
-            ) : (
-              <Button color="inherit" component={RouterLink} to="/login">
+                  <Avatar sx={{ width: 32, height: 32 }}>
+                    {keycloak.tokenParsed?.preferred_username?.charAt(0).toUpperCase()}
+                  </Avatar>
+                </IconButton>
+              </>
+            )}
+            {!keycloak.authenticated && (
+              <Button color="inherit" onClick={() => keycloak.login()}>
                 Login
               </Button>
             )}
@@ -289,7 +257,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
         </Toolbar>
       </Container>
       {renderMenu}
-      {drawer}
+      {renderMobileMenu}
     </AppBar>
   );
 };
